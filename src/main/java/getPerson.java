@@ -23,15 +23,6 @@ public class getPerson extends Person {
         this.gyvas = true;
     }
 
-    private int vidurkis(){
-        int vid = 0;
-        for (int  i=0; i < this.savybes.length; i++){
-            vid += this.savybes[i];
-        }
-        return vid;
-    }
-
-
 
     /**
      * getAmzius() sugeneruoja atsitiktinį skaičių nuo 1 iki 90
@@ -64,7 +55,7 @@ public class getPerson extends Person {
 
     /**
      * getVardas() atsitiktinai sugeneruoja varda prasidedantį didžiąja raide
-     * @return String  str
+     * @return
      */
     private  String setVardas() {
         String str = "";
@@ -106,7 +97,7 @@ public class getPerson extends Person {
 
     /**
      * getPavarde() sugeneruoja atsitiktinę pavardę, priklausančią nuo lyties
-     * @return String str
+     * @return
      */
     private String setPavarde() {
         String str = "";
@@ -236,6 +227,18 @@ public class getPerson extends Person {
                 this.gyvas);
 
 
+    }
+
+    /**
+     * Suskaiciuoja savybiu statistini vidurki
+     * @return
+     */
+    private int vidurkis(){
+        int vid = 0;
+        for (int  i=0; i < this.savybes.length; i++){
+            vid += this.savybes[i];
+        }
+        return vid;
     }
 
 
