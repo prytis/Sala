@@ -1,24 +1,32 @@
 import Enumai.*;
-
 import java.util.Arrays;
 import java.util.Random;
 
 public class getPerson extends Person {
 
     getPerson() {
-
-        this.lytis = getLytis();
-        this.vardas = getVardas();
-        this.pavarde = getPavarde();
-        this.amzius = getAmzius();
-        this.pazymiai = getPazymai();
+        this.lytis = setLytis();
+        this.vardas = setVardas();
+        this.pavarde = setPavarde();
+        this.amzius = setAmzius();
+        this.savybes = setSavybes();
         this.vidurkis = vidurkis();
+        this.gyvas = true;
+    }
+    getPerson(int amzius) {
+        this.lytis = setLytis();
+        this.vardas = setVardas();
+        this.pavarde = setPavarde();
+        this.amzius = amzius;
+        this.savybes = setSavybes();
+        this.vidurkis = vidurkis();
+        this.gyvas = true;
     }
 
     private int vidurkis(){
         int vid = 0;
-        for (int  i=0; i < this.pazymiai.length; i++){
-            vid += this.pazymiai[i];
+        for (int  i=0; i < this.savybes.length; i++){
+            vid += this.savybes[i];
         }
         return vid;
     }
@@ -26,39 +34,39 @@ public class getPerson extends Person {
 
 
     /**
-     * getKlase() sugeneruoja atsitiktinį skaičių nuo 1 iki 12
+     * getAmzius() sugeneruoja atsitiktinį skaičių nuo 1 iki 90
      * @return
      */
-    private int getAmzius() {
-        return setRandomInInterval(90, 1);
+    private int setAmzius() {
+        return setRandomInInterval(90, 0);
     }
 
     /**
      * getLytis() sugeneruoja atsitiktine lytį , kol kas iš dviejų variantų
      * @return
      */
-    private String getLytis() {
+    private String setLytis() {
         Lytis lytis = Lytis.get(setRandomInInterval(1, 0));
         return lytis.toString();
     }
 
     /**
-     * getPazymiai() sugeneruoja 5 elementų masyvą su atsitinktiniai pažymiais nuo 3 iki 10
+     * getSavybes() sugeneruoja 5 elementų masyvą su atsitinktemis savybemis skaleje  nuo 0 iki 10
      * @return
      */
-    private  int[] getPazymai(){
-        int[] pazymiai = new int[5];
-        for (int i = 0; i < pazymiai.length; i++){
-            pazymiai[i] = setRandomInInterval(10, 3);
+    private  int[] setSavybes(){
+        int[] savybes = new int[5];
+        for (int i = 0; i < savybes.length; i++){
+            savybes[i] = setRandomInInterval(10, 3);
         }
-        return pazymiai;
+        return savybes;
     }
 
     /**
      * getVardas() atsitiktinai sugeneruoja varda prasidedantį didžiąja raide
      * @return String  str
      */
-    private  String getVardas() {
+    private  String setVardas() {
         String str = "";
         Random rn = new Random();
         int flag = 1;
@@ -100,7 +108,7 @@ public class getPerson extends Person {
      * getPavarde() sugeneruoja atsitiktinę pavardę, priklausančią nuo lyties
      * @return String str
      */
-    private String getPavarde() {
+    private String setPavarde() {
         String str = "";
         Random rn = new Random();
         int flag = 1;
@@ -149,6 +157,86 @@ public class getPerson extends Person {
         return randomInt;
     }
 
+    /**
+     *  Nustato pozymį kad zmogus mires
+     */
+    public void setGyvas() {
+        this.gyvas = false;
+    }
+
+    /**
+     * grazina ar zmogus mires ar gyvas
+     * @return
+     */
+    public boolean getGyvas() {
+        return gyvas;
+    }
+
+    /**
+     * Grazina zmogaus varda
+     * @return
+     */
+    public String getVardas() {
+        return vardas;
+    }
+
+    /**
+     * Grazina zmogaus pavarde
+     * @return
+     */
+    public String getPavarde() {
+        return pavarde;
+    }
+
+    /**
+     * Grazina zmogaus amziu
+     * @return
+     */
+    public int getAmzius() {
+        return amzius;
+    }
+
+    /**
+     * padidina zmogaus amziu 1 metais
+     */
+    public void incAmzius() {
+        this.amzius++;
+    }
+
+    /**
+     * grazina zmogaus lyti
+     * @return
+     */
+    public String getLytis() {
+        return lytis;
+    }
+
+    public int getVidurkis() {
+        return vidurkis;
+    }
+
+    /**
+     * Grazina zmogaus savybes
+     * @return
+     */
+    public int[] getSavybes() {
+        return savybes;
+    }
+
+    /**
+     *  Atspausdina vieno zmogaus duomenis
+     */
+    public void printPerson() {
+
+        System.out.println(this.vardas + " "
+                + this.pavarde + " " +
+                this.amzius + " " +
+                this.lytis + " " +
+                Arrays.toString(this.savybes)+ " "+
+                this.gyvas);
+
+
+    }
 
 
 }
