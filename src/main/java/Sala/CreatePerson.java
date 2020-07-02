@@ -1,10 +1,12 @@
+package Sala;
+
 import Enumai.*;
 import java.util.Arrays;
 import java.util.Random;
 
-public class getPerson extends Person {
+public class GetPerson extends Person {
 
-    getPerson() {
+    public GetPerson() {
         this.lytis = setLytis();
         this.vardas = setVardas();
         this.pavarde = setPavarde();
@@ -13,7 +15,7 @@ public class getPerson extends Person {
         this.vidurkis = vidurkis();
         this.gyvas = true;
     }
-    getPerson(int amzius) {
+    public GetPerson(int amzius) {
         this.lytis = setLytis();
         this.vardas = setVardas();
         this.pavarde = setPavarde();
@@ -22,6 +24,8 @@ public class getPerson extends Person {
         this.vidurkis = vidurkis();
         this.gyvas = true;
     }
+
+
 
 
     /**
@@ -168,7 +172,7 @@ public class getPerson extends Person {
      * @return
      */
     public String getVardas() {
-        return vardas;
+        return this.vardas;
     }
 
     /**
@@ -176,7 +180,7 @@ public class getPerson extends Person {
      * @return
      */
     public String getPavarde() {
-        return pavarde;
+        return this.pavarde;
     }
 
     /**
@@ -184,7 +188,7 @@ public class getPerson extends Person {
      * @return
      */
     public int getAmzius() {
-        return amzius;
+        return this.amzius;
     }
 
     /**
@@ -199,11 +203,12 @@ public class getPerson extends Person {
      * @return
      */
     public String getLytis() {
-        return lytis;
+        return this.lytis;
     }
 
+
     public int getVidurkis() {
-        return vidurkis;
+        return this.vidurkis;
     }
 
     /**
@@ -211,7 +216,8 @@ public class getPerson extends Person {
      * @return
      */
     public int[] getSavybes() {
-        return savybes;
+
+        return this.savybes;
     }
 
     /**
@@ -225,8 +231,6 @@ public class getPerson extends Person {
                 this.lytis + " " +
                 Arrays.toString(this.savybes)+ " "+
                 this.gyvas);
-
-
     }
 
     /**
@@ -240,6 +244,5 @@ public class getPerson extends Person {
         }
         return vid;
     }
-
 
 }
